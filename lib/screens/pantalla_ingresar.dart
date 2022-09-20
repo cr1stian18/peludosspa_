@@ -15,58 +15,161 @@ class _IngresarState extends State<Ingresar> {
         body: (Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: <Color>[
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFFE0F7FA),
-            ], begin: Alignment.topCenter),
+          decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/fondo9.png")),
           ),
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 90.00),
             children: [
-              imagen(),
+              Padding(padding: EdgeInsets.only(top: 280)),
               Iniciar_Sesion(),
-              Divider(
-                height: 20,
-              ),
+              Padding(padding: EdgeInsets.only(top: 15)),
               Correo(),
-              Divider(
-                height: 10,
-              ),
+              Padding(padding: EdgeInsets.only(top: 9)),
               Contrasena(),
-              Divider(
-                height: 20,
+              Padding(padding: EdgeInsets.only(top: 15)),
+              TextButton(
+                child: const Text(
+                  "Ingresar",
+                  style: TextStyle(
+                    color: Color.fromARGB(237, 0, 0, 0),
+                    fontSize: 20.00,
+                    fontFamily: 'robotom',
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, 'service');
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Color.fromARGB(186, 24, 185, 206),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      side: BorderSide()),
+                ),
               ),
-              Login(),
-              Divider(
-                height: 30,
+              Padding(padding: EdgeInsets.only(top: 16)),
+              TextButton(
+                child: const Text(
+                  "Recuperar Contraseña",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      fontSize: 16.00,
+                      color: Color.fromARGB(192, 0, 110, 255)),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text("Digite Su Correo Electrónico"),
+                      content: TextField(
+                        enableInteractiveSelection: false,
+                        autofocus: true,
+                        textCapitalization: TextCapitalization.characters,
+                        decoration: InputDecoration(
+                            hintText: "Correo Electrónico",
+                            labelText: "Correo",
+                            suffixIcon: Icon(
+                              Icons.contact_mail_rounded,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0))),
+                      ),
+                      actions: [
+                        TextButton(
+                          child: const Text(
+                            "RESTABLECER CONTRASEÑA",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(221, 19, 18, 18),
+                            ),
+                          ),
+                          style: TextButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  side: BorderSide()),
+                              backgroundColor:
+                                  Color.fromARGB(255, 72, 216, 238)),
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                backgroundColor:
+                                    Color.fromARGB(255, 240, 253, 255),
+                                title: Center(
+                                  child: (Text(
+                                      "Hemos recibido la solicitud para recuperar tu contraseña. Si el correo electrónico coincide con el registrado, te eviaremos un mensaje al instante con los pasos para recuperar tu contraseña.")),
+                                ),
+                                content: Icon(
+                                  Icons.verified,
+                                  color: Colors.green,
+                                  size: 57,
+                                ),
+                                actions: [
+                                  Container(
+                                      child: Center(
+                                    child: TextButton(
+                                        child: const Text(
+                                          "CERRAR",
+                                          style: TextStyle(
+                                            fontSize: 21,
+                                            color:
+                                                Color.fromARGB(221, 19, 18, 18),
+                                          ),
+                                        ),
+                                        style: TextButton.styleFrom(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              side: BorderSide()),
+                                          backgroundColor:
+                                              Color.fromARGB(255, 72, 216, 238),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.popAndPushNamed(
+                                              context, 'login');
+                                        }),
+                                  ))
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
-              Olvidaste_contrasena(),
-              Divider(
-                height: 50,
-              ),
+              Padding(padding: EdgeInsets.only(top: 16)),
               mensaje(),
-              Divider(
-                height: 20,
+              Padding(padding: EdgeInsets.only(top: 18)),
+              TextButton(
+                child: const Text(
+                  "Regístrate Ahora",
+                  style: TextStyle(
+                    fontSize: 20.00,
+                    fontFamily: 'robotom',
+                    color: Color.fromARGB(255, 0, 167, 189),
+                  ),
+                ),
+                style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      side: BorderSide(
+                          color: Color.fromARGB(144, 24, 185, 206),
+                          width: 1.5,
+                          style: BorderStyle.solid)),
+                ),
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, 'register');
+                },
               ),
-              Registrate_ahora(),
             ],
           ),
         )),
       ),
     );
   }
-}
-
-Widget imagen() {
-  return Container(
-    child: Center(
-      child: Image(image: AssetImage("assets/logo.png")),
-    ),
-  );
 }
 
 Widget Iniciar_Sesion() {
@@ -105,53 +208,10 @@ Widget Contrasena() {
   );
 }
 
-Widget Login() {
-  return SizedBox(
-    child: FlatButton(
-      color: Color.fromARGB(144, 24, 185, 206),
-      hoverColor: Colors.blueAccent,
-      onPressed: () {},
-      child: Text(
-        "Ingresar",
-        style: TextStyle(fontSize: 18.00, fontFamily: 'robotom'),
-      ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-    ),
-  );
-}
-
-Widget Olvidaste_contrasena() {
-  return Center(
-      child: Text(
-    "Recuperar Contraseña",
-    style: TextStyle(fontSize: 14.00),
-  ));
-}
-
 Widget mensaje() {
   return Center(
       child: Text(
     "¿Aún no tienes cuenta?",
-    style: TextStyle(fontSize: 14.00),
+    style: TextStyle(fontSize: 14.00, fontWeight: FontWeight.bold),
   ));
-}
-
-Widget Registrate_ahora() {
-  return SizedBox(
-    child: FlatButton(
-      hoverColor: Colors.blueAccent,
-      onPressed: () {},
-      child: Text(
-        "Regístrate Ahora",
-        style: TextStyle(
-          fontSize: 20.00,
-          fontFamily: 'robotom',
-          color: Color.fromARGB(144, 0, 217, 255),
-        ),
-      ),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          side: BorderSide(color: Color.fromARGB(144, 24, 185, 206))),
-    ),
-  );
 }

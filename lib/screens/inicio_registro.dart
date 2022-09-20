@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class Inicio extends StatefulWidget {
@@ -10,99 +12,69 @@ class Inicio extends StatefulWidget {
 class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-        body: (Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: <Color>[
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFF00BCD4),
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFFE0F7FA),
-            ], begin: Alignment.topCenter),
-          ),
-          child: ListView(
-            padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 150),
-            children: [
-              Bienvenidos(),
-              Divider(
-                height: 20,
+    return Scaffold(
+      body: (Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage("assets/fondo6.png")),
+        ),
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 180),
+          children: [
+            Bienvenidos(),
+            Padding(padding: EdgeInsets.only(top: 380)),
+            TextButton(
+              child: const Text(
+                "Iniciar Sesión",
+                style: TextStyle(
+                    fontSize: 24, color: Colors.black87, fontFamily: 'robotom'),
               ),
-              imagen(),
-              Divider(
-                height: 10,
+              style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(
+                          color: Color.fromARGB(237, 101, 14, 240),
+                          width: 1.5,
+                          style: BorderStyle.solid)),
+                  backgroundColor: Color(0xFF00B8D4)),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, 'login');
+              },
+            ),
+            Padding(padding: EdgeInsets.only(top: 9)),
+            TextButton(
+              child: const Text(
+                "Registrarme",
+                style: TextStyle(
+                    fontSize: 24, color: Colors.black87, fontFamily: 'robotom'),
               ),
-              botonIngreso(),
-              Divider(
-                height: 10.0,
-              ),
-              botonRegistro(),
-            ],
-          ),
-        )),
-      ),
+              style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(
+                          color: Color.fromARGB(237, 101, 14, 240),
+                          width: 1.5,
+                          style: BorderStyle.solid)),
+                  backgroundColor: Color(0xFF00B8D4)),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, 'register');
+              },
+            ),
+          ],
+        ),
+      )),
     );
   }
 }
 
 Widget Bienvenidos() {
-  return Container(
-      child: Center(
-          child: Text(
-    "Bienvenidos ",
+  return const Center(
+      child: Text(
+    "Bienvenidos",
     style: TextStyle(
-      fontFamily: 'rukik',
-      fontSize: 53.00,
-    ),
-  )));
-}
-
-Widget imagen() {
-  return Container(
-    child: Center(
-      child: Image(image: AssetImage("assets/perro__.png")),
-    ),
-  );
-}
-
-Widget botonIngreso() {
-  return FlatButton(
-    height: 50,
-    color: const Color(0xFF00B8D4),
-    onPressed: () {},
-    child: Text(
-      "Ingresar",
-      style: TextStyle(
-        fontSize: 24.00,
-        fontFamily: 'robotom',
-      ),
-    ),
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-        side: BorderSide(color: Color.fromRGBO(194, 18, 18, 0.565))),
-  );
-}
-
-Widget botonRegistro() {
-  return FlatButton(
-    height: 50,
-    color: const Color(0xFF00B8D4),
-    onPressed: () {},
-    child: Text(
-      "Registrarse",
-      style: TextStyle(
-        fontSize: 24.00,
-        fontFamily: 'robotom',
-      ),
-    ),
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-        side: BorderSide(color: Color.fromRGBO(194, 18, 18, 0.565))),
-  );
+        fontFamily: 'rukik',
+        fontSize: 53.00,
+        color: Color.fromARGB(255, 234, 236, 238)),
+  ));
 }

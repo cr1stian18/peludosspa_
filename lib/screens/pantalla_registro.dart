@@ -15,58 +15,94 @@ class _RegistroState extends State<Registro> {
         body: (Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: <Color>[
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFF00BCD4),
-              const Color(0xFF00BCD4),
-              const Color(0xFFE0F7FA),
-              const Color(0xFFE0F7FA),
-              const Color(0xFFE0F7FA),
-            ], begin: Alignment.topCenter),
+          decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/fondo13.png")),
           ),
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 90.00),
             children: [
-              imagen(),
+              Padding(padding: EdgeInsets.only(top: 280)),
               Registrarse(),
-              Divider(
-                height: 20,
-              ),
+              Padding(padding: EdgeInsets.only(top: 15)),
               Nombre(),
-              Divider(
-                height: 10,
-              ),
+              Padding(padding: EdgeInsets.only(top: 9)),
               Correo_Electronico(),
-              Divider(
-                height: 10,
-              ),
+              Padding(padding: EdgeInsets.only(top: 9)),
               Contrasena(),
-              Divider(
-                height: 10,
-              ),
+              Padding(padding: EdgeInsets.only(top: 9)),
               Contrasena_verificacion(),
-              Divider(
-                height: 25,
+              Padding(padding: EdgeInsets.only(top: 15)),
+              TextButton(
+                child: const Text(
+                  "Crear cuenta",
+                  style: TextStyle(
+                    color: Color.fromARGB(237, 0, 0, 0),
+                    fontSize: 20.00,
+                    fontFamily: 'robotom',
+                  ),
+                ),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                              title: Text("¡REGISTRO EXITOSO!               "
+                                  "Ahora podras disfrutar de todos nuestros servicios."),
+                              alignment: Alignment.center,
+                              content: Image(
+                                  image: AssetImage("assets/perro___.png")),
+                              actions: [
+                                Container(
+                                    child: Center(
+                                  child: TextButton(
+                                      child: const Text(
+                                        "CONTINUAR",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color:
+                                              Color.fromARGB(221, 19, 18, 18),
+                                        ),
+                                      ),
+                                      style: TextButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            side: BorderSide()),
+                                        backgroundColor:
+                                            Color.fromARGB(255, 72, 216, 238),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.popAndPushNamed(
+                                            context, 'login');
+                                      }),
+                                ))
+                              ]));
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Color.fromARGB(186, 24, 185, 206),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      side: BorderSide()),
+                ),
               ),
-              Register()
+              TextButton(
+                child: const Text(
+                  "Si ya tienes cuenta entra AQUÍ",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      fontSize: 15.00,
+                      color: Color.fromARGB(192, 0, 110, 255)),
+                ),
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, 'login');
+                },
+              ),
             ],
           ),
         )),
       ),
     );
   }
-}
-
-Widget imagen() {
-  return Container(
-    child: Center(
-      child: Image(image: AssetImage("assets/logo.png")),
-    ),
-  );
 }
 
 Widget Registrarse() {
@@ -129,23 +165,5 @@ Widget Contrasena_verificacion() {
           Icons.lock_rounded,
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(50.0))),
-  );
-}
-
-Widget Register() {
-  return SizedBox(
-    child: FlatButton(
-      color: Color.fromARGB(144, 24, 185, 206),
-      hoverColor: Colors.blueAccent,
-      onPressed: () {},
-      child: Text(
-        "Registrarse",
-        style: TextStyle(
-          fontSize: 19.00,
-          fontFamily: 'robotom',
-        ),
-      ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-    ),
   );
 }

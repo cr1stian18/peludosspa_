@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:peludosspa/models/menu_options.dart';
+import 'package:peludosspa/screens/citas.dart';
 import 'package:peludosspa/screens/inicio_registro.dart';
 import 'package:peludosspa/screens/pantalla_ingresar.dart';
 import 'package:peludosspa/screens/pantalla_registro.dart';
+import 'package:peludosspa/screens/servicios.dart';
 
 class AppRoutes {
   static const initialRoute = 'home';
 
   static final menuOptions = <MenuOption>{
-    MenuOption(route: 'home', name: 'Inicio_Registro', screen: Inicio()),
-    MenuOption(route: 'login', name: 'Inicio_sesion', screen: Ingresar()),
-    MenuOption(route: 'Register', name: 'Registrarse', screen: Registro())
+    MenuOption(route: 'home', name: 'Inicio_Registro', screen: const Inicio()),
+    MenuOption(route: 'login', name: 'Inicio_sesion', screen: const Ingresar()),
+    MenuOption(
+        route: 'register', name: 'Registrarse', screen: const Registro()),
+    MenuOption(route: 'service', name: 'servicios', screen: const Picture()),
+    MenuOption(
+        route: 'appointment', name: 'citas', screen: const Colaboradores()),
   };
 
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
