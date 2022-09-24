@@ -72,37 +72,38 @@ Widget imagen() {
 }
 
 Widget botonIngreso() {
-  return FlatButton(
-    height: 50,
-    color: const Color(0xFF00B8D4),
+  return TextButton(
+    style: ButtonStyle(),
     onPressed: () {},
     child: Text(
       "Ingresar",
       style: TextStyle(
         fontSize: 24.00,
         fontFamily: 'robotom',
+        height: 50,
+        color: const Color(0xFF00B8D4),
       ),
     ),
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-        side: BorderSide(color: Color.fromRGBO(194, 18, 18, 0.565))),
+    // shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(18.0),
+    //     side: BorderSide(color: Color.fromRGBO(194, 18, 18, 0.565))),
   );
 }
 
 Widget botonRegistro() {
-  return FlatButton(
-    height: 50,
-    color: const Color(0xFF00B8D4),
+  return TextButton(
     onPressed: () {},
     child: Text(
       "Registrarse",
       style: TextStyle(
         fontSize: 24.00,
         fontFamily: 'robotom',
+        height: 50,
+        color: const Color(0xFF00B8D4),
       ),
     ),
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-        side: BorderSide(color: Color.fromRGBO(194, 18, 18, 0.565))),
+    // shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(18.0),
+    //     side: BorderSide(color: Color.fromRGBO(194, 18, 18, 0.565))),
   );
 }

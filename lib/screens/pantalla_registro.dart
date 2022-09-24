@@ -134,18 +134,19 @@ Widget Contrasena_verificacion() {
 
 Widget Register() {
   return SizedBox(
-    child: FlatButton(
-      color: Color.fromARGB(144, 24, 185, 206),
-      hoverColor: Colors.blueAccent,
+    child: TextButton(
+      
       onPressed: () {},
       child: Text(
         "Registrarse",
         style: TextStyle(
           fontSize: 19.00,
           fontFamily: 'robotom',
+          color: Color.fromARGB(144, 24, 185, 206),
+      //hoverColor: Colors.blueAccent,
         ),
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
     ),
   );
 }

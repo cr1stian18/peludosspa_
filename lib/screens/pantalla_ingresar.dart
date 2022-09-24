@@ -107,15 +107,18 @@ Widget Contrasena() {
 
 Widget Login() {
   return SizedBox(
-    child: FlatButton(
-      color: Color.fromARGB(144, 24, 185, 206),
-      hoverColor: Colors.blueAccent,
+    child: TextButton(
       onPressed: () {},
       child: Text(
         "Ingresar",
-        style: TextStyle(fontSize: 18.00, fontFamily: 'robotom'),
+        style: TextStyle(
+          fontSize: 18.00,
+          fontFamily: 'robotom',
+          color: Color.fromARGB(144, 24, 185, 206),
+          //hoverColor: Colors.blueAccent,),
+        ),
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
     ),
   );
 }
@@ -138,8 +141,8 @@ Widget mensaje() {
 
 Widget Registrate_ahora() {
   return SizedBox(
-    child: FlatButton(
-      hoverColor: Colors.blueAccent,
+    child: TextButton(
+      //hoverColor: Colors.blueAccent,
       onPressed: () {},
       child: Text(
         "Regístrate Ahora",
@@ -149,9 +152,9 @@ Widget Registrate_ahora() {
           color: Color.fromARGB(144, 0, 217, 255),
         ),
       ),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          side: BorderSide(color: Color.fromARGB(144, 24, 185, 206))),
+      // shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(10.0),
+      //     side: BorderSide(color: Color.fromARGB(144, 24, 185, 206))),
     ),
   );
 }

@@ -8,9 +8,9 @@ class AppRoutes {
   static const initialRoute = 'home';
 
   static final menuOptions = <MenuOption>{
-    MenuOption(route: 'home', name: 'Inicio_Registro', screen: Inicio()),
-    MenuOption(route: 'login', name: 'Inicio_sesion', screen: Ingresar()),
-    MenuOption(route: 'Register', name: 'Registrarse', screen: Registro())
+    MenuOption(route: 'home', name: 'Inicio_Registro', screen: const Inicio()),
+    MenuOption(route: 'login', name: 'Inicio_sesion', screen: const Ingresar()),
+    MenuOption(route: 'Register', name: 'Registrarse', screen: const Registro())
   };
 
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
